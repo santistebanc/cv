@@ -432,7 +432,7 @@ const CV = () => React.createElement(
         'Web development is both my profession and hobby, where I actively experiment through personal projects ' +
         'on areas I may not be able during work. ' +
         'Eager to learn and try the latest tech, and leverage the newest tools (AI in recent times) to develop ' +
-        'efficient, high-quality, scalable applications.'
+        'functional, high-quality, and good looking applications.'
       )
     ),
     
