@@ -427,10 +427,10 @@ const CV = () => React.createElement(
       React.createElement(
         Text,
         { style: styles.summaryText },
-        'Experienced software engineer with 10+ years of expertise in web application development. ' +
-        'Specializing in frontend development with JavaScript and TypeScript, with strong full-stack ' +
-        'capabilities using Node.js. Passionate about building user-centric solutions and leveraging ' +
-        'modern technologies to deliver high-quality, scalable applications.'
+        'Software engineer with 10+ years of experience in webapp development using JavaScript/TypeScript. ' +
+        'Passionate about building functional, well-polished, user-centric solutions for web apps. ' +
+        'Eager to learn and try the latest tech, and leverage the newest tools (AI in recent times) to develop ' +
+        'efficient, high-quality, scalable applications.'
       )
     ),
     
