@@ -621,26 +621,13 @@ const CV = () => React.createElement(
       ),
       
       React.createElement(Text, { style: styles.categoryTitle }, '🎨 Frontend Technologies:'),
-      React.createElement(Text, { style: styles.bulletPoint }, 'Languages: JavaScript, TypeScript, HTML, CSS'),
-      React.createElement(Text, { style: styles.bulletPoint }, 'Frameworks & Libraries: React, Redux'),
-      React.createElement(Text, { style: styles.bulletPoint }, 'Styling: MaterialUI, Styled Components'),
-      React.createElement(Text, { style: styles.bulletPoint }, 'Build Tools: Webpack, Vite'),
-      React.createElement(Text, { style: styles.bulletPoint }, 'Other: ReactRouter, AMP (Accelerated Mobile Pages)'),
+      React.createElement(Text, { style: styles.bulletPoint }, 'JavaScript, TypeScript, HTML, CSS, React, Redux, MaterialUI, Styled Components, Webpack, Vite, ReactRouter, AMP'),
       
       React.createElement(Text, { style: styles.categoryTitle }, '⚙️ Backend & Data:'),
-      React.createElement(Text, { style: styles.bulletPoint }, 'Runtime: Node.js'),
-      React.createElement(Text, { style: styles.bulletPoint }, 'Frameworks: Express, Hono, Fastify, NestJS'),
-      React.createElement(Text, { style: styles.bulletPoint }, 'Realtime: WebSockets, Geckos.io, Partykit'),
-      React.createElement(Text, { style: styles.bulletPoint }, 'Databases: PostgreSQL, SQL, Convex'),
-      React.createElement(Text, { style: styles.bulletPoint }, 'API Technologies: REST APIs, GraphQL, Apollo, tRPC'),
+      React.createElement(Text, { style: styles.bulletPoint }, 'Node.js, Express, Hono, Fastify, NestJS, WebSockets, Geckos.io, Partykit, PostgreSQL, SQL, Convex, REST APIs, GraphQL, Apollo, tRPC'),
       
       React.createElement(Text, { style: styles.categoryTitle }, '🔧 Tools & Practices:'),
-      React.createElement(Text, { style: styles.bulletPoint }, 'Testing: Jest, Enzyme'),
-      React.createElement(Text, { style: styles.bulletPoint }, 'Version Control: Git, GitHub Actions'),
-      React.createElement(Text, { style: styles.bulletPoint }, 'CI/CD: GitHub Actions'),
-      React.createElement(Text, { style: styles.bulletPoint }, 'Design: Figma'),
-      React.createElement(Text, { style: styles.bulletPoint }, 'Project Management: Jira'),
-      React.createElement(Text, { style: styles.bulletPoint }, 'AI Tools: Cursor, GitHub Copilot, MCP, RAG')
+      React.createElement(Text, { style: styles.bulletPoint }, 'Jest, Enzyme, Git, GitHub Actions, Figma, Jira, Cursor, GitHub Copilot, MCP, RAG')
     ),
     
     // Core Competencies
