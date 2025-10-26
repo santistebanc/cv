@@ -1,0 +1,27 @@
+{
+  "name": "cv-generator",
+  "version": "1.0.0",
+  "description": "CV generator using React PDF",
+  "main": "index.js",
+  "scripts": {
+    "start": "node generate-cv.js"
+  },
+  "keywords": [
+    "cv",
+    "resume",
+    "react-pdf"
+  ],
+  "author": "Carlos Santisteban Pozas",
+  "license": "MIT",
+  "dependencies": {
+    "@react-pdf/renderer": "^3.1.14",
+    "react": "^18.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.23.0",
+    "@babel/node": "^7.22.0",
+    "@babel/preset-react": "^7.22.0",
+    "@babel/register": "^7.22.0"
+  }
+}
+
