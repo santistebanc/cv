@@ -607,59 +607,61 @@ const CV = () => React.createElement(
     // Page Header
     React.createElement(
       View,
-      { style: { marginBottom: 15, borderBottom: '2 solid #cbd5e1', paddingBottom: 8 } },
+      { style: { marginBottom: 10, borderBottom: '2 solid #cbd5e1', paddingBottom: 6 } },
       React.createElement(Text, { style: { fontSize: 16, fontWeight: 'bold', color: '#1a202c' } }, '💼 Carlos Santisteban'),
-      React.createElement(Text, { style: { fontSize: 11, color: '#64748b', marginTop: 3 } }, '🛠️ Skills & Competencies')
-    ),
-    // Technical Skills
-    React.createElement(
-      View,
-      { style: styles.section },
-      React.createElement(
-        View,
-        { style: { flexDirection: 'row', alignItems: 'center', marginBottom: 3, paddingBottom: 3, textTransform: 'uppercase' } },
-        React.createElement(WrenchIcon, { size: 14 }),
-        React.createElement(Text, { style: styles.sectionTitle }, 'TECHNICAL SKILLS')
-      ),
-      
-      React.createElement(Text, { style: styles.categoryTitle }, '🎨 Frontend Technologies:'),
-      React.createElement(Text, { style: styles.bulletPoint }, 'JavaScript, TypeScript, HTML, CSS, React, Next.js, Redux, Zustand, MaterialUI, Styled Components, Tailwind CSS, CSS Modules, Shadcn, Webpack, Vite, ReactRouter, AMP'),
-      
-      React.createElement(Text, { style: styles.categoryTitle }, '⚙️ Backend & Data:'),
-      React.createElement(Text, { style: styles.bulletPoint }, 'Node.js, Express, Hono, Fastify, NestJS, WebSockets, Geckos.io, Partykit, PostgreSQL, SQL, MongoDB, Redis, Convex, Prisma, NextAuth, REST APIs, GraphQL, Apollo, tRPC, AWS, Cloudflare'),
-      
-      React.createElement(Text, { style: styles.categoryTitle }, '🔧 Tools & Practices:'),
-      React.createElement(Text, { style: styles.bulletPoint }, 'Jest, Enzyme, React Testing Library, Cypress, Playwright, Storybook, Sentry, Postman, Git, ESLint, Prettier, npm, yarn, pnpm, GitHub, GitHub Actions, Docker, Figma, Jira, Slack, Cursor, MCP, RAG')
+      React.createElement(Text, { style: { fontSize: 11, color: '#64748b', marginTop: 2 } }, '🛠️ Skills & Competencies')
     ),
     
-    // Core Competencies
+    // Two-column layout
     React.createElement(
       View,
-      { style: styles.section },
+      { style: { flexDirection: 'row', marginTop: 10 } },
+      // Left Column - Technical Skills
       React.createElement(
         View,
-        { style: { flexDirection: 'row', alignItems: 'center', marginBottom: 3, paddingBottom: 3, textTransform: 'uppercase' } },
-        React.createElement(ZapIcon, { size: 14 }),
-        React.createElement(Text, { style: styles.sectionTitle }, 'CORE COMPETENCIES')
+        { style: { flex: 1, marginRight: 8 } },
+        React.createElement(
+          View,
+          { style: { flexDirection: 'row', alignItems: 'center', marginBottom: 3, paddingBottom: 3, textTransform: 'uppercase' } },
+          React.createElement(WrenchIcon, { size: 14 }),
+          React.createElement(Text, { style: styles.sectionTitle }, 'TECHNICAL SKILLS')
+        ),
+        React.createElement(Text, { style: styles.categoryTitle }, '🎨 Frontend Technologies:'),
+        React.createElement(Text, { style: styles.bulletPoint }, 'JavaScript, TypeScript, HTML, CSS, React, Next.js, Redux, Zustand, MaterialUI, Styled Components, Tailwind CSS, CSS Modules, Shadcn, Webpack, Vite, ReactRouter, AMP'),
+        React.createElement(Text, { style: styles.categoryTitle }, '⚙️ Backend & Data:'),
+        React.createElement(Text, { style: styles.bulletPoint }, 'Node.js, Express, Hono, Fastify, NestJS, WebSockets, Geckos.io, Partykit, PostgreSQL, SQL, MongoDB, Redis, Convex, Prisma, NextAuth, REST APIs, GraphQL, Apollo, tRPC, AWS, Cloudflare'),
+        React.createElement(Text, { style: styles.categoryTitle }, '🔧 Tools & Practices:'),
+        React.createElement(Text, { style: styles.bulletPoint }, 'Jest, Enzyme, React Testing Library, Cypress, Playwright, Storybook, Sentry, Postman, Git, ESLint, Prettier, npm, yarn, pnpm, GitHub, GitHub Actions, Docker, Figma, Jira, Slack, Cursor, MCP, RAG')
       ),
-      React.createElement(Text, { style: styles.categoryTitle }, '💡 Technical Expertise:'),
-      React.createElement(Text, { style: styles.competencyItem }, '• Routing and State Management'),
-      React.createElement(Text, { style: styles.competencyItem }, '• Client-Server Interaction'),
-      React.createElement(Text, { style: styles.competencyItem }, '• Server-Side Rendering (SSR)'),
-      React.createElement(Text, { style: styles.competencyItem }, '• SEO Optimization'),
-      React.createElement(Text, { style: styles.competencyItem }, '• Responsive Design & UX/UI'),
-      React.createElement(Text, { style: styles.competencyItem }, '• Performance Optimization'),
-      React.createElement(Text, { style: styles.competencyItem }, '• Code Splitting and Lazy Loading'),
-      React.createElement(Text, { style: styles.competencyItem }, '• Web Vitals and Lighthouse'),
-      React.createElement(Text, { style: styles.competencyItem }, '• API Design'),
-      React.createElement(Text, { style: styles.competencyItem }, '• Code Quality & Code Reviews'),
-      React.createElement(Text, { style: styles.competencyItem }, '• Security Best Practices'),
-      React.createElement(Text, { style: styles.competencyItem }, '• Documentation'),
-      React.createElement(Text, { style: styles.competencyItem }, '• Debugging and Troubleshooting'),
-      React.createElement(Text, { style: styles.competencyItem }, '• Cross-Functional Team Collaboration'),
-      React.createElement(Text, { style: styles.competencyItem }, '• Unit Testing & CI/CD'),
-      React.createElement(Text, { style: styles.competencyItem }, '• Agile Methodology'),
-      React.createElement(Text, { style: styles.competencyItem }, '• AI-Assisted Development')
+      // Right Column - Core Competencies
+      React.createElement(
+        View,
+        { style: { flex: 1, marginLeft: 8 } },
+        React.createElement(
+          View,
+          { style: { flexDirection: 'row', alignItems: 'center', marginBottom: 3, paddingBottom: 3, textTransform: 'uppercase' } },
+          React.createElement(ZapIcon, { size: 14 }),
+          React.createElement(Text, { style: styles.sectionTitle }, 'CORE COMPETENCIES')
+        ),
+        React.createElement(Text, { style: styles.categoryTitle }, '💡 Technical Expertise:'),
+        React.createElement(Text, { style: styles.competencyItem }, '• Routing and State Management'),
+        React.createElement(Text, { style: styles.competencyItem }, '• Client-Server Interaction'),
+        React.createElement(Text, { style: styles.competencyItem }, '• Server-Side Rendering (SSR)'),
+        React.createElement(Text, { style: styles.competencyItem }, '• SEO Optimization'),
+        React.createElement(Text, { style: styles.competencyItem }, '• Responsive Design & UX/UI'),
+        React.createElement(Text, { style: styles.competencyItem }, '• Performance Optimization'),
+        React.createElement(Text, { style: styles.competencyItem }, '• Code Splitting and Lazy Loading'),
+        React.createElement(Text, { style: styles.competencyItem }, '• Web Vitals and Lighthouse'),
+        React.createElement(Text, { style: styles.competencyItem }, '• API Design'),
+        React.createElement(Text, { style: styles.competencyItem }, '• Code Quality & Code Reviews'),
+        React.createElement(Text, { style: styles.competencyItem }, '• Security Best Practices'),
+        React.createElement(Text, { style: styles.competencyItem }, '• Documentation'),
+        React.createElement(Text, { style: styles.competencyItem }, '• Debugging and Troubleshooting'),
+        React.createElement(Text, { style: styles.competencyItem }, '• Cross-Functional Team Collaboration'),
+        React.createElement(Text, { style: styles.competencyItem }, '• Unit Testing & CI/CD'),
+        React.createElement(Text, { style: styles.competencyItem }, '• Agile Methodology'),
+        React.createElement(Text, { style: styles.competencyItem }, '• AI-Assisted Development')
+      )
     )
   )
 );
