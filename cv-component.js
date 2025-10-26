@@ -1,5 +1,5 @@
 const React = require('react');
-const { Document, Page, Text, View, StyleSheet, Svg, Path, Circle, Rect } = require('@react-pdf/renderer');
+const { Document, Page, Text, View, StyleSheet, Svg, Path, Circle, Rect, Link } = require('@react-pdf/renderer');
 
 const styles = StyleSheet.create({
   page: {
@@ -398,7 +398,7 @@ const CV = () => React.createElement(
             View,
             { style: { flexDirection: 'row', marginBottom: 3 } },
             React.createElement(GitHubIcon, { size: 10 }),
-            React.createElement(Text, { style: { fontSize: 9 } }, 'github.com/santistebanc')
+            React.createElement(Link, { src: 'https://github.com/santistebanc', style: { fontSize: 9, color: '#1e40af' } }, 'github.com/santistebanc')
           ),
           React.createElement(
             View,
