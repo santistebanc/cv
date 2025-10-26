@@ -429,8 +429,8 @@ const CV = () => React.createElement(
         { style: styles.summaryText },
         'Software engineer with 10+ years of experience in webapp development using JavaScript/TypeScript. ' +
         'Passionate about building functional, well-polished, user-centric solutions for web apps. ' +
-        'Web development is both my profession and hobby, where I actively explore new technologies and tools ' +
-        'through personal projects, allowing me to experiment with cutting-edge solutions. ' +
+        'Web development is both my profession and hobby, where I actively explore new tech and tools ' +
+        'through personal projects, allowing me to experiment on areas I may not be able during work. ' +
         'Eager to learn and try the latest tech, and leverage the newest tools (AI in recent times) to develop ' +
         'efficient, high-quality, scalable applications.'
       )
