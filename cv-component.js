@@ -621,13 +621,13 @@ const CV = () => React.createElement(
       ),
       
       React.createElement(Text, { style: styles.categoryTitle }, '🎨 Frontend Technologies:'),
-      React.createElement(Text, { style: styles.bulletPoint }, 'JavaScript, TypeScript, HTML, CSS, React, Redux, Zustand, MaterialUI, Styled Components, Tailwind CSS, CSS Modules, Shadcn, Webpack, Vite, ReactRouter, AMP'),
+      React.createElement(Text, { style: styles.bulletPoint }, 'JavaScript, TypeScript, HTML, CSS, React, Next.js, Redux, Zustand, MaterialUI, Styled Components, Tailwind CSS, CSS Modules, Shadcn, Webpack, Vite, ReactRouter, AMP'),
       
       React.createElement(Text, { style: styles.categoryTitle }, '⚙️ Backend & Data:'),
-      React.createElement(Text, { style: styles.bulletPoint }, 'Node.js, Express, Hono, Fastify, NestJS, WebSockets, Geckos.io, Partykit, PostgreSQL, SQL, MongoDB, Convex, REST APIs, GraphQL, Apollo, tRPC, AWS, Cloudflare'),
+      React.createElement(Text, { style: styles.bulletPoint }, 'Node.js, Express, Hono, Fastify, NestJS, WebSockets, Geckos.io, Partykit, PostgreSQL, SQL, MongoDB, Redis, Convex, Prisma, REST APIs, GraphQL, Apollo, tRPC, AWS, Cloudflare'),
       
       React.createElement(Text, { style: styles.categoryTitle }, '🔧 Tools & Practices:'),
-      React.createElement(Text, { style: styles.bulletPoint }, 'Jest, Enzyme, React Testing Library, Cypress, Playwright, Git, ESLint, Prettier, npm, yarn, pnpm, GitHub Actions, Docker, Figma, Jira, Cursor, GitHub Copilot, MCP, RAG')
+      React.createElement(Text, { style: styles.bulletPoint }, 'Jest, Enzyme, React Testing Library, Cypress, Playwright, Storybook, Sentry, Postman, Git, ESLint, Prettier, npm, yarn, pnpm, GitHub, GitHub Actions, Docker, Figma, Jira, Cursor, MCP, RAG')
     ),
     
     // Core Competencies
