@@ -621,13 +621,13 @@ const CV = () => React.createElement(
       ),
       
       React.createElement(Text, { style: styles.categoryTitle }, '🎨 Frontend Technologies:'),
-      React.createElement(Text, { style: styles.bulletPoint }, 'JavaScript, TypeScript, HTML, CSS, React, Redux, MaterialUI, Styled Components, Webpack, Vite, ReactRouter, AMP'),
+      React.createElement(Text, { style: styles.bulletPoint }, 'JavaScript, TypeScript, HTML, CSS, React, Redux, MaterialUI, Styled Components, Tailwind CSS, CSS Modules, Webpack, Vite, ReactRouter, AMP'),
       
       React.createElement(Text, { style: styles.categoryTitle }, '⚙️ Backend & Data:'),
-      React.createElement(Text, { style: styles.bulletPoint }, 'Node.js, Express, Hono, Fastify, NestJS, WebSockets, Geckos.io, Partykit, PostgreSQL, SQL, Convex, REST APIs, GraphQL, Apollo, tRPC'),
+      React.createElement(Text, { style: styles.bulletPoint }, 'Node.js, Express, Hono, Fastify, NestJS, WebSockets, Geckos.io, Partykit, PostgreSQL, SQL, MongoDB, Convex, REST APIs, GraphQL, Apollo, tRPC'),
       
       React.createElement(Text, { style: styles.categoryTitle }, '🔧 Tools & Practices:'),
-      React.createElement(Text, { style: styles.bulletPoint }, 'Jest, Enzyme, Git, GitHub Actions, Figma, Jira, Cursor, GitHub Copilot, MCP, RAG')
+      React.createElement(Text, { style: styles.bulletPoint }, 'Jest, Enzyme, React Testing Library, Git, ESLint, Prettier, GitHub Actions, Figma, Jira, Cursor, GitHub Copilot, MCP, RAG, Docker')
     ),
     
     // Core Competencies
