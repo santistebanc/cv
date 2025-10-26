@@ -627,11 +627,11 @@ const CV = () => React.createElement(
           React.createElement(Text, { style: styles.sectionTitle }, 'TECHNICAL SKILLS')
         ),
         React.createElement(Text, { style: styles.categoryTitle }, '🎨 Frontend Technologies:'),
-        React.createElement(Text, { style: styles.bulletPoint }, 'JavaScript, TypeScript, HTML, CSS, React, Next.js, Redux, Zustand, MaterialUI, Styled Components, Tailwind CSS, CSS Modules, Shadcn, Webpack, Vite, ReactRouter, AMP'),
+        React.createElement(Text, { style: styles.bulletPoint }, 'React, Next.js, TypeScript, JavaScript, Redux, Zustand, MaterialUI, Tailwind CSS, Styled Components, CSS Modules, Shadcn, Webpack, Vite, ReactRouter, HTML, CSS, AMP'),
         React.createElement(Text, { style: styles.categoryTitle }, '⚙️ Backend & Data:'),
-        React.createElement(Text, { style: styles.bulletPoint }, 'Node.js, Express, Hono, Fastify, NestJS, WebSockets, Geckos.io, Partykit, PostgreSQL, SQL, MongoDB, Redis, Convex, Prisma, NextAuth, REST APIs, GraphQL, Apollo, tRPC, AWS, Cloudflare'),
+        React.createElement(Text, { style: styles.bulletPoint }, 'Node.js, NestJS, PostgreSQL, GraphQL, tRPC, Prisma, NextAuth, MongoDB, Redis, Convex, REST APIs, Apollo, WebSockets, Express, Hono, Fastify, Geckos.io, Partykit, SQL, AWS, Cloudflare'),
         React.createElement(Text, { style: styles.categoryTitle }, '🔧 Tools & Practices:'),
-        React.createElement(Text, { style: styles.bulletPoint }, 'Jest, Enzyme, React Testing Library, Cypress, Playwright, Storybook, Sentry, Postman, Git, ESLint, Prettier, npm, yarn, pnpm, GitHub, GitHub Actions, Docker, Figma, Jira, Slack, Cursor, MCP, RAG')
+        React.createElement(Text, { style: styles.bulletPoint }, 'Git, Docker, Cypress, Playwright, Jest, React Testing Library, Storybook, GitHub, GitHub Actions, ESLint, Prettier, Cursor, Sentry, Postman, Figma, Jira, Slack, Enzyme, MCP, RAG, npm, yarn, pnpm')
       ),
       // Right Column - Core Competencies
       React.createElement(
@@ -644,21 +644,21 @@ const CV = () => React.createElement(
           React.createElement(Text, { style: styles.sectionTitle }, 'CORE COMPETENCIES')
         ),
         React.createElement(Text, { style: styles.categoryTitle }, '💡 Technical Expertise:'),
-        React.createElement(Text, { style: styles.competencyItem }, '• Routing and State Management'),
-        React.createElement(Text, { style: styles.competencyItem }, '• Client-Server Interaction'),
-        React.createElement(Text, { style: styles.competencyItem }, '• Server-Side Rendering (SSR)'),
-        React.createElement(Text, { style: styles.competencyItem }, '• SEO Optimization'),
-        React.createElement(Text, { style: styles.competencyItem }, '• Responsive Design & UX/UI'),
         React.createElement(Text, { style: styles.competencyItem }, '• Performance Optimization'),
+        React.createElement(Text, { style: styles.competencyItem }, '• API Design'),
+        React.createElement(Text, { style: styles.competencyItem }, '• Server-Side Rendering (SSR)'),
+        React.createElement(Text, { style: styles.competencyItem }, '• Code Quality & Code Reviews'),
+        React.createElement(Text, { style: styles.competencyItem }, '• Routing and State Management'),
+        React.createElement(Text, { style: styles.competencyItem }, '• Security Best Practices'),
+        React.createElement(Text, { style: styles.competencyItem }, '• Responsive Design & UX/UI'),
+        React.createElement(Text, { style: styles.competencyItem }, '• Unit Testing & CI/CD'),
+        React.createElement(Text, { style: styles.competencyItem }, '• Debugging and Troubleshooting'),
         React.createElement(Text, { style: styles.competencyItem }, '• Code Splitting and Lazy Loading'),
         React.createElement(Text, { style: styles.competencyItem }, '• Web Vitals and Lighthouse'),
-        React.createElement(Text, { style: styles.competencyItem }, '• API Design'),
-        React.createElement(Text, { style: styles.competencyItem }, '• Code Quality & Code Reviews'),
-        React.createElement(Text, { style: styles.competencyItem }, '• Security Best Practices'),
+        React.createElement(Text, { style: styles.competencyItem }, '• SEO Optimization'),
+        React.createElement(Text, { style: styles.competencyItem }, '• Client-Server Interaction'),
         React.createElement(Text, { style: styles.competencyItem }, '• Documentation'),
-        React.createElement(Text, { style: styles.competencyItem }, '• Debugging and Troubleshooting'),
         React.createElement(Text, { style: styles.competencyItem }, '• Cross-Functional Team Collaboration'),
-        React.createElement(Text, { style: styles.competencyItem }, '• Unit Testing & CI/CD'),
         React.createElement(Text, { style: styles.competencyItem }, '• Agile Methodology'),
         React.createElement(Text, { style: styles.competencyItem }, '• AI-Assisted Development')
       )
