@@ -18,13 +18,15 @@ Font.register({
 });
 
 const palette = {
-  darkTeal: '#6a5d4f',
-  oceanBlue: '#7c6f62',
+  darkTeal: '#1f2338',
+  oceanBlue: '#4f5b7a',
   emerald: '#6b8068',
   goldenPollen: '#d4920a',
   bubblegumPink: '#b87a08',
-  light: '#f6efe6',
-  paper: '#faf6f0',
+  light: '#f7f9ff',
+  paper: '#f2f5fc',
+  borderSoft: '#d7dcee',
+  pattern: '#bcc6df',
 };
 
 const styles = StyleSheet.create({
@@ -37,12 +39,22 @@ const styles = StyleSheet.create({
     backgroundColor: palette.paper,
   },
   header: {
+    position: 'relative',
+    marginBottom: 10,
+    padding: '7 8 6 8',
+  },
+  headerRule: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    bottom: 0,
+    height: 1,
+    backgroundColor: palette.borderSoft,
+  },
+  compactHeader: {
+    position: 'relative',
     marginBottom: 12,
-    backgroundColor: palette.light,
-    padding: 10,
-    borderRadius: 4,
-    border: `1 solid ${palette.goldenPollen}`,
-    borderLeft: `4 solid ${palette.bubblegumPink}`,
+    padding: '8 10 7 10',
   },
   name: {
     fontSize: 31.5,
@@ -260,7 +272,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: palette.light,
-    border: `1 solid ${palette.paper}`,
+    border: `1 solid ${palette.borderSoft}`,
     borderRadius: 6,
     padding: '3 7',
     marginRight: 5,
@@ -592,6 +604,7 @@ const CV = () => React.createElement(
     React.createElement(
       View,
       { style: styles.header },
+      React.createElement(View, { style: styles.headerRule }),
       React.createElement(
         View,
         { style: { flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'space-between' } },
@@ -828,9 +841,14 @@ const CV = () => React.createElement(
     // Compact header
     React.createElement(
       View,
-      { style: { marginBottom: 12, backgroundColor: palette.light, padding: '10 14', borderRadius: 4, borderTop: `4 solid ${palette.bubblegumPink}`, borderLeft: `4 solid ${palette.bubblegumPink}`, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' } },
+      { style: styles.compactHeader },
+      React.createElement(View, { style: styles.headerRule }),
+      React.createElement(
+        View,
+        { style: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' } },
       React.createElement(Text, { style: { fontSize: 15, fontWeight: 600, color: palette.darkTeal } }, 'Carlos Santisteban'),
       React.createElement(Text, { style: { fontSize: 10, color: palette.oceanBlue, fontWeight: 'bold' } }, 'Skills & Competencies')
+      )
     ),
 
     // Technical Skills — 3-column layout

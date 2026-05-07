@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carlos Santisteban CV</title>
+    <style>
+      :root {
+        --bg: #faf6f0;
+        --surface: #fffdfb;
+        --text: #2e2418;
+        --muted: #7a6d5c;
+        --accent: #d4920a;
+        --border: #e8dfd2;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: Outfit, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        color: var(--text);
+        background: var(--bg);
+      }
+      main {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 24px;
+      }
+      .card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 16px;
+      }
+      h1 {
+        margin: 0 0 6px 0;
+        font-size: 24px;
+      }
+      p {
+        margin: 0;
+        color: var(--muted);
+      }
+      .actions {
+        margin-top: 12px;
+      }
+      .actions a {
+        display: inline-block;
+        text-decoration: none;
+        color: #fff;
+        background: var(--accent);
+        padding: 8px 12px;
+        border-radius: 8px;
+        font-weight: 600;
+      }
+      iframe {
+        margin-top: 16px;
+        width: 100%;
+        height: 86vh;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="card">
+        <h1>Carlos Santisteban — CV</h1>
+        <p>Latest generated PDF resume</p>
+        <div class="actions">
+          <a href="./Carlos_Santisteban_CV.pdf">Open PDF in new tab</a>
+        </div>
+      </section>
+      <iframe src="./Carlos_Santisteban_CV.pdf" title="Carlos Santisteban CV PDF"></iframe>
+    </main>
+  </body>
+</html>
