@@ -1,39 +1,71 @@
 const React = require('react');
-const { Document, Page, Text, View, StyleSheet, Svg, Path, Circle, Rect, Link } = require('@react-pdf/renderer');
+const path = require('path');
+const { Document, Page, Text, View, StyleSheet, Svg, Path, Circle, Rect, Link, Font } = require('@react-pdf/renderer');
+const simpleIcons = require('simple-icons');
+
+Font.register({
+  family: 'Outfit',
+  fonts: [
+    { src: path.join(__dirname, 'node_modules/@fontsource/outfit/files/outfit-latin-400-normal.woff'), fontWeight: 400 },
+    { src: path.join(__dirname, 'node_modules/@fontsource/outfit/files/outfit-latin-500-normal.woff'), fontWeight: 500 },
+    { src: path.join(__dirname, 'node_modules/@fontsource/outfit/files/outfit-latin-700-normal.woff'), fontWeight: 700 },
+    { src: path.join(__dirname, 'node_modules/@fontsource/outfit/files/outfit-latin-800-normal.woff'), fontWeight: 800 },
+    { src: path.join(__dirname, 'node_modules/@fontsource/outfit/files/outfit-latin-900-normal.woff'), fontWeight: 900 },
+    { src: path.join(__dirname, 'node_modules/@fontsource/outfit/files/outfit-latin-500-normal.woff'), fontWeight: 500, fontStyle: 'italic' },
+    { src: path.join(__dirname, 'node_modules/@fontsource/outfit/files/outfit-latin-700-normal.woff'), fontWeight: 700, fontStyle: 'italic' },
+    { src: path.join(__dirname, 'node_modules/@fontsource/outfit/files/outfit-latin-900-normal.woff'), fontWeight: 900, fontStyle: 'italic' },
+  ],
+});
+
+const palette = {
+  darkTeal: '#6a5d4f',
+  oceanBlue: '#7c6f62',
+  emerald: '#6b8068',
+  goldenPollen: '#d4920a',
+  bubblegumPink: '#b87a08',
+  light: '#f6efe6',
+  paper: '#faf6f0',
+};
 
 const styles = StyleSheet.create({
   page: {
-    padding: 20,
-    fontFamily: 'Helvetica',
-    fontSize: 10,
-    color: '#2d3748',
-    backgroundColor: '#ffffff',
+    padding: 30,
+    fontFamily: 'Outfit',
+    fontSize: 11.1,
+    fontWeight: 400,
+    color: palette.darkTeal,
+    backgroundColor: palette.paper,
   },
   header: {
-    marginBottom: 8,
-    paddingBottom: 6,
-    borderBottom: '3 solid #1e40af',
-    backgroundColor: '#f8fafc',
-    padding: 8,
+    marginBottom: 12,
+    backgroundColor: palette.light,
+    padding: 10,
     borderRadius: 4,
-    borderTop: '5 solid #1e40af',
+    border: `1 solid ${palette.goldenPollen}`,
+    borderLeft: `4 solid ${palette.bubblegumPink}`,
   },
   name: {
-    fontSize: 26,
-    fontWeight: 'bold',
-    color: '#1a202c',
-    marginBottom: 6,
-    letterSpacing: 0.5,
+    fontSize: 31.5,
+    fontWeight: 500,
+    color: palette.darkTeal,
+    marginBottom: 4,
+    letterSpacing: 0.1,
   },
-    title: {
-    fontSize: 13,
-    color: '#1e40af',
-    marginBottom: 8,
-    fontWeight: 'bold',
+  title: {
+    fontSize: 13.1,
+    color: palette.emerald,
+    fontWeight: 700,
+    fontStyle: 'italic',
+  },
+  titleSoft: {
+    fontSize: 13.1,
+    color: palette.emerald,
+    fontWeight: 300,
+    fontStyle: 'italic',
   },
   contactInfo: {
     fontSize: 9,
-    color: '#4a5568',
+    color: palette.oceanBlue,
     lineHeight: 1.6,
     marginTop: 8,
   },
@@ -42,108 +74,156 @@ const styles = StyleSheet.create({
     marginBottom: 3,
   },
   section: {
-    marginTop: 4,
-    marginBottom: 4,
+    marginTop: 6,
+    marginBottom: 3,
   },
   jobBlock: {
-    marginBottom: 6,
-    paddingLeft: 8,
-    borderLeft: '3 solid #e0e7ff',
+    marginBottom: 7,
+    padding: '4 0 8 14',
+    backgroundColor: palette.paper,
+    borderBottom: `1 solid ${palette.light}`,
+    borderLeft: `1 solid ${palette.goldenPollen}`,
+  },
+  sectionHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 4,
+    backgroundColor: palette.paper,
+    padding: '3 0',
+    borderRadius: 3,
+    borderBottom: `1 solid ${palette.goldenPollen}`,
   },
   sectionTitle: {
-    fontSize: 15,
-    fontWeight: 'bold',
-    color: '#1a202c',
-    marginBottom: 4,
-    borderBottom: '2 solid #1e40af',
-    paddingBottom: 3,
+    fontSize: 12.1,
+    fontWeight: 700,
+    color: palette.darkTeal,
+    marginBottom: 0,
     textTransform: 'uppercase',
-    letterSpacing: 1,
+    letterSpacing: 0.6,
+    marginLeft: 5,
   },
   summaryText: {
-    fontSize: 10,
-    lineHeight: 1.3,
-    color: '#2d3748',
-    textAlign: 'justify',
-    backgroundColor: '#f7fafc',
-    padding: 6,
+    fontSize: 10.5,
+    lineHeight: 1.6,
+    fontWeight: 400,
+    color: palette.darkTeal,
+    backgroundColor: palette.paper,
+    borderLeft: `3 solid ${palette.emerald}`,
     borderRadius: 4,
+    padding: '5 8',
+    marginBottom: 4,
   },
   jobTitle: {
-    fontSize: 13,
+    fontSize: 10.9,
     fontWeight: 'bold',
-    color: '#1a202c',
-    marginBottom: 4,
+    color: palette.darkTeal,
+    marginBottom: 3,
   },
   company: {
-    fontSize: 12,
+    fontSize: 11.6,
     fontWeight: 'bold',
-    color: '#1e40af',
-    marginBottom: 4,
+    color: palette.oceanBlue,
+    marginBottom: 3,
+  },
+  companyName: {
+    fontSize: 13.9,
+    fontWeight: 700,
+    color: palette.emerald,
+  },
+  dateRange: {
+    fontSize: 9.2,
+    color: palette.oceanBlue,
+    fontWeight: 400,
+    fontStyle: 'italic',
+    backgroundColor: palette.light,
+    padding: '2 6',
+  },
+  locationMeta: {
+    fontSize: 8.8,
+    color: palette.oceanBlue,
+    fontWeight: 400,
+    fontStyle: 'normal',
   },
   dates: {
-    fontSize: 9,
-    color: '#718096',
+    fontSize: 8,
+    color: palette.darkTeal,
     fontStyle: 'italic',
     marginBottom: 4,
-    backgroundColor: '#edf2f7',
+    backgroundColor: palette.light,
     padding: '2px 6px',
     borderRadius: 3,
     alignSelf: 'flex-start',
   },
   description: {
-    fontSize: 9,
-    lineHeight: 1.2,
-    color: '#2d3748',
-    marginBottom: 4,
-    marginTop: 2,
+    fontSize: 10,
+    lineHeight: 1.5,
+    fontWeight: 400,
+    color: palette.darkTeal,
+    marginBottom: 3,
+    marginTop: 1,
   },
   bulletPoint: {
-    fontSize: 9,
-    lineHeight: 1.4,
-    color: '#2d3748',
+    fontSize: 9.9,
+    lineHeight: 1.45,
+    fontWeight: 400,
+    color: palette.darkTeal,
     marginLeft: 12,
-    marginBottom: 2,
+    marginBottom: 1,
+  },
+  experienceParagraph: {
+    fontSize: 10.5,
+    lineHeight: 1.5,
+    fontWeight: 400,
+    color: palette.darkTeal,
+    marginTop: 2,
+    marginBottom: 1,
+  },
+  keyEmphasis: {
+    fontWeight: 700,
+    color: palette.darkTeal,
   },
   categoryTitle: {
-    fontSize: 11,
+    fontSize: 10.1,
     fontWeight: 'bold',
-    color: '#1e40af',
-    marginTop: 4,
-    marginBottom: 3,
+    color: palette.bubblegumPink,
+    marginTop: 10,
+    marginBottom: 4,
     textTransform: 'uppercase',
-    letterSpacing: 0.5,
+    letterSpacing: 0.8,
   },
   educationItem: {
-    marginBottom: 4,
-    paddingLeft: 8,
-    borderLeft: '3 solid #e0e7ff',
+    marginBottom: 8,
+    padding: '4 0 8 14',
+    backgroundColor: palette.paper,
+    borderBottom: `1 solid ${palette.light}`,
+    borderLeft: `1 solid ${palette.goldenPollen}`,
   },
   educationTitle: {
-    fontSize: 12,
-    fontWeight: 'bold',
-    color: '#1a202c',
-    marginBottom: 4,
+    fontSize: 13.9,
+    fontWeight: 800,
+    color: palette.emerald,
+    marginBottom: 2,
   },
   educationInstitution: {
-    fontSize: 11,
-    color: '#1e40af',
-    marginBottom: 3,
-    fontWeight: 'bold',
+    fontSize: 10,
+    color: palette.darkTeal,
+    marginBottom: 2,
+    fontWeight: 400,
   },
   educationDates: {
-    fontSize: 9,
-    color: '#718096',
+    fontSize: 8.6,
+    color: palette.darkTeal,
     fontStyle: 'italic',
-    backgroundColor: '#edf2f7',
+    backgroundColor: palette.light,
     padding: '3px 8px',
     borderRadius: 3,
     alignSelf: 'flex-start',
   },
   competencyItem: {
-    fontSize: 9,
-    color: '#2d3748',
-    marginBottom: 3,
+    fontSize: 10.8,
+    fontWeight: 400,
+    color: palette.darkTeal,
+    marginBottom: 9,
     marginLeft: 12,
   },
   skillsGrid: {
@@ -152,29 +232,168 @@ const styles = StyleSheet.create({
     marginTop: 5,
   },
   skillTag: {
-    fontSize: 8,
-    color: '#1e40af',
-    backgroundColor: '#eef2ff',
+    fontSize: 8.6,
+    color: palette.darkTeal,
+    backgroundColor: palette.light,
     padding: '4px 10px',
     marginRight: 6,
     marginBottom: 6,
     borderRadius: 12,
-    border: '1 solid #c7d2fe',
+    border: `1 solid ${palette.oceanBlue}`,
   },
   pageBreak: {
     marginTop: 40,
     marginBottom: 10,
   },
   iconText: {
-    fontSize: 14,
+    fontSize: 15.3,
     fontWeight: 'bold',
-    color: '#1e40af',
+    color: palette.bubblegumPink,
     marginRight: 8,
+  },
+  techBadgeWrap: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    marginTop: 2,
+  },
+  techBadge: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: palette.light,
+    border: `1 solid ${palette.paper}`,
+    borderRadius: 6,
+    padding: '3 7',
+    marginRight: 5,
+    marginBottom: 5,
+  },
+  techBadgeText: {
+    fontSize: 9.8,
+    fontWeight: 400,
+    color: palette.darkTeal,
+    marginLeft: 4,
   },
 });
 
+const techIconMap = {
+  React: simpleIcons.siReact,
+  TypeScript: simpleIcons.siTypescript,
+  JavaScript: simpleIcons.siJavascript,
+  Redux: simpleIcons.siRedux,
+  Apollo: simpleIcons.siApollographql,
+  Zustand: null,
+  MaterialUI: simpleIcons.siMui,
+  'Tailwind CSS': simpleIcons.siTailwindcss,
+  'Styled Components': simpleIcons.siStyledcomponents,
+  'CSS Modules': simpleIcons.siCssmodules,
+  Shadcn: simpleIcons.siShadcnui,
+  Webpack: simpleIcons.siWebpack,
+  Vite: simpleIcons.siVite,
+  ReactRouter: simpleIcons.siReactrouter,
+  HTML: simpleIcons.siHtml5,
+  CSS: simpleIcons.siCss,
+  'Node.js': simpleIcons.siNodedotjs,
+  PostgreSQL: simpleIcons.siPostgresql,
+  GraphQL: simpleIcons.siGraphql,
+  tRPC: simpleIcons.siTrpc,
+  Prisma: simpleIcons.siPrisma,
+  NextAuth: null,
+  MongoDB: simpleIcons.siMongodb,
+  Redis: simpleIcons.siRedis,
+  Convex: simpleIcons.siConvex,
+  'REST APIs': null,
+  WebSockets: null,
+  Express: simpleIcons.siExpress,
+  Hono: simpleIcons.siHono,
+  Fastify: simpleIcons.siFastify,
+  'Next.js': simpleIcons.siNextdotjs,
+  'Geckos.io': null,
+  Partykit: null,
+  SQL: simpleIcons.siPostgresql,
+  AWS: null,
+  Cloudflare: simpleIcons.siCloudflare,
+  Git: simpleIcons.siGit,
+  Docker: simpleIcons.siDocker,
+  Cypress: simpleIcons.siCypress,
+  Playwright: null,
+  Jest: simpleIcons.siJest,
+  'React Testing Library': simpleIcons.siTestinglibrary,
+  Storybook: simpleIcons.siStorybook,
+  GitHub: simpleIcons.siGithub,
+  'GitHub Actions': simpleIcons.siGithubactions,
+  ESLint: simpleIcons.siEslint,
+  Prettier: simpleIcons.siPrettier,
+  'Claude Code': simpleIcons.siClaude,
+  Codex: null,
+  Cursor: simpleIcons.siCursor,
+  Sentry: simpleIcons.siSentry,
+  'AI SDK': null,
+  Figma: simpleIcons.siFigma,
+  Jira: simpleIcons.siJira,
+  Slack: null,
+  'Agent Skills/MCPs': null,
+  RAG: null,
+  bun: simpleIcons.siBun,
+  pnpm: simpleIcons.siPnpm,
+  yarn: simpleIcons.siYarn,
+  npm: simpleIcons.siNpm,
+};
+
+const frontendSkills = [
+  'React', 'TypeScript', 'JavaScript', 'Redux', 'Apollo', 'Zustand', 'MaterialUI',
+  'Tailwind CSS', 'Styled Components', 'CSS Modules', 'Shadcn', 'Webpack', 'Vite',
+  'ReactRouter', 'HTML', 'CSS'
+];
+
+const backendSkills = [
+  'Node.js', 'PostgreSQL', 'GraphQL', 'tRPC', 'Prisma', 'NextAuth', 'MongoDB', 'Redis',
+  'Convex', 'REST APIs', 'Apollo', 'WebSockets', 'Express', 'Hono', 'Fastify', 'Next.js',
+  'Geckos.io', 'Partykit', 'SQL', 'AWS', 'Cloudflare'
+];
+
+const toolsSkills = [
+  'Git', 'Docker', 'Cypress', 'Playwright', 'Jest', 'React Testing Library', 'Storybook',
+  'GitHub', 'GitHub Actions', 'ESLint', 'Prettier', 'Claude Code', 'Codex', 'Cursor',
+  'Sentry', 'AI SDK', 'Figma', 'Jira', 'Slack', 'Agent Skills/MCPs', 'RAG', 'bun',
+  'pnpm', 'yarn', 'npm'
+];
+
+const TechBadge = ({ label }) => {
+  const icon = techIconMap[label];
+
+  if (!icon) {
+    return React.createElement(
+      View,
+      { style: styles.techBadge },
+      React.createElement(
+        Svg,
+        { width: 9, height: 9, viewBox: '0 0 24 24' },
+        React.createElement(Circle, { cx: '12', cy: '12', r: '8', fill: palette.oceanBlue })
+      ),
+      React.createElement(Text, { style: styles.techBadgeText }, label)
+    );
+  }
+
+  return React.createElement(
+    View,
+    { style: styles.techBadge },
+    React.createElement(
+      Svg,
+      { width: 10, height: 10, viewBox: '0 0 24 24' },
+      React.createElement(Path, { d: icon.path, fill: `#${icon.hex}` })
+    ),
+    React.createElement(Text, { style: styles.techBadgeText }, label)
+  );
+};
+
+const renderSkillBadges = (skills) =>
+  React.createElement(
+    View,
+    { style: styles.techBadgeWrap },
+    ...skills.map((skill) => React.createElement(TechBadge, { key: skill, label: skill }))
+  );
+
 // Simple SVG Icons
-const EmailIcon = ({ size = 8, color = '#1e40af' }) => React.createElement(
+const EmailIcon = ({ size = 8, color = palette.oceanBlue }) => React.createElement(
   Svg,
   { width: size, height: size, viewBox: '0 0 24 24', style: { marginRight: 4 } },
   React.createElement(Path, {
@@ -189,7 +408,7 @@ const EmailIcon = ({ size = 8, color = '#1e40af' }) => React.createElement(
   })
 );
 
-const LinkIcon = ({ size = 8, color = '#1e40af' }) => React.createElement(
+const LinkIcon = ({ size = 8, color = palette.oceanBlue }) => React.createElement(
   Svg,
   { width: size, height: size, viewBox: '0 0 24 24', style: { marginRight: 4 } },
   React.createElement(Path, {
@@ -206,7 +425,7 @@ const LinkIcon = ({ size = 8, color = '#1e40af' }) => React.createElement(
   })
 );
 
-const GitHubIcon = ({ size = 8, color = '#1e40af' }) => React.createElement(
+const GitHubIcon = ({ size = 8, color = palette.oceanBlue }) => React.createElement(
   Svg,
   { width: size, height: size, viewBox: '0 0 24 24', style: { marginRight: 4 } },
   React.createElement(Path, {
@@ -217,7 +436,7 @@ const GitHubIcon = ({ size = 8, color = '#1e40af' }) => React.createElement(
   })
 );
 
-const LocationIcon = ({ size = 8, color = '#1e40af' }) => React.createElement(
+const LocationIcon = ({ size = 8, color = palette.oceanBlue }) => React.createElement(
   Svg,
   { width: size, height: size, viewBox: '0 0 24 24', style: { marginRight: 4 } },
   React.createElement(Path, {
@@ -236,7 +455,7 @@ const LocationIcon = ({ size = 8, color = '#1e40af' }) => React.createElement(
   })
 );
 
-const UserIcon = ({ size = 12, color = '#1e40af' }) => React.createElement(
+const UserIcon = ({ size = 12, color = palette.oceanBlue }) => React.createElement(
   Svg,
   { width: size, height: size, viewBox: '0 0 24 24', style: { marginRight: 4 } },
   React.createElement(Path, {
@@ -255,7 +474,7 @@ const UserIcon = ({ size = 12, color = '#1e40af' }) => React.createElement(
   })
 );
 
-const CodeIcon = ({ size = 8, color = '#1e40af' }) => React.createElement(
+const CodeIcon = ({ size = 8, color = palette.oceanBlue }) => React.createElement(
   Svg,
   { width: size, height: size, viewBox: '0 0 24 24', style: { marginRight: 4 } },
   React.createElement(Path, {
@@ -266,7 +485,7 @@ const CodeIcon = ({ size = 8, color = '#1e40af' }) => React.createElement(
   })
 );
 
-const BriefcaseIcon = ({ size = 8, color = '#1e40af' }) => React.createElement(
+const BriefcaseIcon = ({ size = 8, color = palette.oceanBlue }) => React.createElement(
   Svg,
   { width: size, height: size, viewBox: '0 0 24 24', style: { marginRight: 4 } },
   React.createElement(Path, {
@@ -287,7 +506,7 @@ const BriefcaseIcon = ({ size = 8, color = '#1e40af' }) => React.createElement(
   })
 );
 
-const FileTextIcon = ({ size = 12, color = '#1a202c' }) => React.createElement(
+const FileTextIcon = ({ size = 12, color = palette.bubblegumPink }) => React.createElement(
   Svg,
   { width: size, height: size, viewBox: '0 0 24 24', style: { marginRight: 6, marginTop: -2 } },
   React.createElement(Path, {
@@ -304,7 +523,7 @@ const FileTextIcon = ({ size = 12, color = '#1a202c' }) => React.createElement(
   })
 );
 
-const WorkIcon = ({ size = 12, color = '#1a202c' }) => React.createElement(
+const WorkIcon = ({ size = 12, color = palette.bubblegumPink }) => React.createElement(
   Svg,
   { width: size, height: size, viewBox: '0 0 24 24', style: { marginRight: 6, marginTop: -2 } },
   React.createElement(Path, {
@@ -321,7 +540,7 @@ const WorkIcon = ({ size = 12, color = '#1a202c' }) => React.createElement(
   })
 );
 
-const GraduationCapIcon = ({ size = 12, color = '#1a202c' }) => React.createElement(
+const GraduationCapIcon = ({ size = 12, color = palette.bubblegumPink }) => React.createElement(
   Svg,
   { width: size, height: size, viewBox: '0 0 24 24', style: { marginRight: 6, marginTop: -2 } },
   React.createElement(Path, {
@@ -338,7 +557,7 @@ const GraduationCapIcon = ({ size = 12, color = '#1a202c' }) => React.createElem
   })
 );
 
-const ZapIcon = ({ size = 12, color = '#1a202c' }) => React.createElement(
+const ZapIcon = ({ size = 12, color = palette.bubblegumPink }) => React.createElement(
   Svg,
   { width: size, height: size, viewBox: '0 0 24 24', style: { marginRight: 6, marginTop: -2 } },
   React.createElement(Path, {
@@ -349,7 +568,7 @@ const ZapIcon = ({ size = 12, color = '#1a202c' }) => React.createElement(
   })
 );
 
-const WrenchIcon = ({ size = 12, color = '#1a202c' }) => React.createElement(
+const WrenchIcon = ({ size = 12, color = palette.bubblegumPink }) => React.createElement(
   Svg,
   { width: size, height: size, viewBox: '0 0 24 24', style: { marginRight: 6, marginTop: -2 } },
   React.createElement(Path, {
@@ -363,214 +582,214 @@ const WrenchIcon = ({ size = 12, color = '#1a202c' }) => React.createElement(
 const CV = () => React.createElement(
   Document,
   null,
+
+  // ── PAGE 1: Header + Summary + Experience ──────────────────────────────────
   React.createElement(
     Page,
     { size: 'A4', style: styles.page },
+
     // Header
     React.createElement(
       View,
       { style: styles.header },
       React.createElement(
         View,
-        { style: { flexDirection: 'row', alignItems: 'flex-start' } },
-        // Name + Title column (3/5 width)
+        { style: { flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'space-between' } },
         React.createElement(
           View,
-          { style: { flex: 3, paddingRight: 10 } },
+          { style: { flex: 1, paddingRight: 16 } },
+          React.createElement(Text, { style: styles.name }, 'Carlos Santisteban'),
           React.createElement(
-            View,
-            { style: { flexDirection: 'row', alignItems: 'baseline', flexWrap: 'wrap' } },
-            React.createElement(Text, { style: styles.name }, '💼 Carlos Santisteban '),
-            React.createElement(Text, { style: styles.title }, '🔧 Fullstack Software Engineer specializing in Frontend')
+            Text,
+            { style: styles.title },
+            'Fullstack Engineer ',
+            React.createElement(Text, { style: styles.titleSoft }, 'with focus on'),
+            ' Frontend'
           )
         ),
-        // Contact info column (2/5 width)
         React.createElement(
           View,
-          { style: { flex: 2, paddingLeft: 10 } },
+          { style: { marginTop: 3, alignItems: 'flex-end' } },
           React.createElement(
             View,
-            { style: { flexDirection: 'row', marginBottom: 3 } },
-            React.createElement(EmailIcon, { size: 10 }),
-            React.createElement(Text, { style: { fontSize: 9 } }, 'carlos.santisteban@outlook.com')
+            { style: { flexDirection: 'row', marginBottom: 4 } },
+            React.createElement(EmailIcon, { size: 10, color: palette.oceanBlue }),
+            React.createElement(Text, { style: { fontSize: 9, color: palette.darkTeal } }, 'carlos.santisteban@outlook.com')
           ),
           React.createElement(
             View,
-            { style: { flexDirection: 'row', marginBottom: 3 } },
-            React.createElement(GitHubIcon, { size: 10 }),
-            React.createElement(Link, { src: 'https://github.com/santistebanc', style: { fontSize: 9, color: '#1e40af' } }, 'github.com/santistebanc')
+            { style: { flexDirection: 'row', marginBottom: 4 } },
+            React.createElement(GitHubIcon, { size: 10, color: palette.oceanBlue }),
+            React.createElement(Link, { src: 'https://github.com/santistebanc', style: { fontSize: 9, color: palette.oceanBlue } }, 'github.com/santistebanc')
           ),
           React.createElement(
             View,
-            { style: { flexDirection: 'row', marginBottom: 3 } },
-            React.createElement(LocationIcon, { size: 10 }),
-            React.createElement(Text, { style: { fontSize: 9 } }, 'Berlin, Germany')
+            { style: { flexDirection: 'row', marginBottom: 4 } },
+            React.createElement(LocationIcon, { size: 10, color: palette.oceanBlue }),
+            React.createElement(Text, { style: { fontSize: 9, color: palette.darkTeal } }, 'Berlin, Germany')
           ),
           React.createElement(
             Text,
-            { style: { fontSize: 9, marginBottom: 3 } },
-            '🌍 Mexican and Spanish (full european citizen)'
-          ),
-          React.createElement(
-            Text,
-            { style: { fontSize: 9 } },
-            'Age 31'
+            { style: { fontSize: 9, color: palette.oceanBlue } },
+            '🌍 Mexican & Spanish (full EU citizen)'
           )
         )
       )
     ),
-    
-    // Professional Summary
+
+    // Summary
     React.createElement(
       View,
-      { style: styles.section },
+      { style: { marginTop: 6, marginBottom: 2 } },
       React.createElement(
         Text,
         { style: styles.summaryText },
-        'Software engineer with 10+ years of experience in webapp development using JavaScript/TypeScript. ' +
-        'Passionate about building functional, well-polished, user-centric solutions for web apps. ' +
-        'Web development is both my profession and hobby, where I actively experiment through personal projects ' +
-        'on areas I may not be able during work. ' +
-        'Eager to learn and try the latest tech, and leverage the newest tools (AI in recent times) to develop ' +
-        'functional, high-quality, and good looking applications.'
+        'Software engineer with 8+ years of experience in web development, primarily with JavaScript/TypeScript and React. ' +
+        'Web development is both my profession and hobby — I\'m genuinely passionate about building functional, good-looking applications with solid UX. ' +
+        'I keep up with the latest tools and have been actively using AI-assisted development to work more productively, ' +
+        'while maintaining good software fundamentals. Always learning, always experimenting.'
       )
     ),
-    
+
     // Professional Experience
     React.createElement(
       View,
-      { style: styles.section },
+      { style: { ...styles.section, marginTop: 7, marginBottom: 3 } },
       React.createElement(
         View,
-        { style: { flexDirection: 'row', alignItems: 'center', marginBottom: 3, paddingBottom: 3, textTransform: 'uppercase' } },
+        { style: styles.sectionHeader },
         React.createElement(WorkIcon, { size: 14 }),
         React.createElement(Text, { style: styles.sectionTitle }, 'PROFESSIONAL EXPERIENCE')
       ),
-      
+
       // Lingoda
       React.createElement(
         View,
-        { style: styles.jobBlock },
+        { style: { ...styles.jobBlock, marginBottom: 10, paddingBottom: 2 } },
         React.createElement(
           View,
-          { style: { flexDirection: 'row', alignItems: 'baseline', flexWrap: 'wrap' } },
+          { style: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 2 } },
+          React.createElement(Text, { style: styles.companyName }, 'Lingoda — Software Engineer'),
           React.createElement(
             View,
-            { style: styles.dates },
-            React.createElement(Text, { style: { fontSize: 9 } }, 'June 2021 - March 2025')
-          ),
-          React.createElement(Text, { style: { fontSize: 8, marginHorizontal: 6 } }, '|'),
-          React.createElement(Text, { style: styles.jobTitle }, '💻 Software Engineer'),
-          React.createElement(Text, { style: { fontSize: 8, marginHorizontal: 6 } }, '|'),
-          React.createElement(Text, { style: { fontSize: 11, fontWeight: 'bold', color: '#1e40af' } }, 'Lingoda - Berlin, Germany')
+            { style: { flexDirection: 'row', alignItems: 'center' } },
+            React.createElement(Text, { style: styles.locationMeta }, 'Berlin'),
+            React.createElement(Text, { style: { marginLeft: 6, color: palette.oceanBlue } }, '•'),
+            React.createElement(Text, { style: { ...styles.dateRange, marginLeft: 6 } }, 'Jun 2021 – Mar 2025')
+          )
         ),
         React.createElement(
           Text,
-          { style: styles.description },
-          'Developed features for a language learning platform at a startup company, focusing on ' +
-          'interactive practice exercises including quizzes, flashcards, and other engaging learning tools.'
-        ),
-        React.createElement(Text, { style: styles.bulletPoint }, '• Built frontend features using React with TypeScript'),
-        React.createElement(Text, { style: styles.bulletPoint }, '• Implemented UI components using MaterialUI'),
-        React.createElement(Text, { style: styles.bulletPoint }, '• Developed GraphQL API using Apollo'),
-        React.createElement(Text, { style: styles.bulletPoint }, '• Worked with backend services built on NestJS'),
-        React.createElement(Text, { style: styles.bulletPoint }, '• Managed data persistence using PostgreSQL databases'),
-        React.createElement(Text, { style: styles.bulletPoint }, '• Collaborated with cross-functional teams in a startup environment')
+          { style: styles.experienceParagraph },
+          'Worked on a language learning platform at a Berlin startup, building interactive practice features including quizzes and flashcards, developing frontend experiences with ',
+          React.createElement(Text, { style: styles.keyEmphasis }, 'React and TypeScript'),
+          ', implementing UI with ',
+          React.createElement(Text, { style: styles.keyEmphasis }, 'MaterialUI'),
+          ', and contributing to ',
+          React.createElement(Text, { style: styles.keyEmphasis }, 'GraphQL state management with Apollo'),
+          ' while collaborating with cross-functional teams and backend services built on ',
+          React.createElement(Text, { style: styles.keyEmphasis }, 'NestJS and PostgreSQL'),
+          '.'
+        )
       ),
-      
+
       // Quandoo
       React.createElement(
         View,
-        { style: styles.jobBlock },
+        { style: { ...styles.jobBlock, marginBottom: 10, paddingBottom: 2 } },
         React.createElement(
           View,
-          { style: { flexDirection: 'row', alignItems: 'baseline', flexWrap: 'wrap' } },
+          { style: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 2 } },
+          React.createElement(Text, { style: styles.companyName }, 'Quandoo — Software Engineer'),
           React.createElement(
             View,
-            { style: styles.dates },
-            React.createElement(Text, { style: { fontSize: 9 } }, 'September 2017 - January 2021')
-          ),
-          React.createElement(Text, { style: { fontSize: 8, marginHorizontal: 6 } }, '|'),
-          React.createElement(Text, { style: styles.jobTitle }, '💻 Software Engineer'),
-          React.createElement(Text, { style: { fontSize: 8, marginHorizontal: 6 } }, '|'),
-          React.createElement(Text, { style: { fontSize: 11, fontWeight: 'bold', color: '#1e40af' } }, 'Quandoo - Berlin, Germany')
+            { style: { flexDirection: 'row', alignItems: 'center' } },
+            React.createElement(Text, { style: styles.locationMeta }, 'Berlin'),
+            React.createElement(Text, { style: { marginLeft: 6, color: palette.oceanBlue } }, '•'),
+            React.createElement(Text, { style: { ...styles.dateRange, marginLeft: 6 } }, 'Sep 2017 – Jan 2021')
+          )
         ),
         React.createElement(
           Text,
-          { style: styles.description },
-          'Contributed to multiple teams developing complex features for a restaurant reservation ' +
-          'platform, specializing in advanced UI components and SEO optimizations.'
-        ),
-        React.createElement(Text, { style: styles.bulletPoint }, '• Developed complex UI components including interactive carousels and responsive layouts'),
-        React.createElement(Text, { style: styles.bulletPoint }, '• Implemented SEO optimizations with extensive server-side rendering'),
-        React.createElement(Text, { style: styles.bulletPoint }, '• Built scalable features using React with Redux'),
-        React.createElement(Text, { style: styles.bulletPoint }, '• Created styled, reusable components with Styled Components'),
-        React.createElement(Text, { style: styles.bulletPoint }, '• Enhanced user experience through responsive design')
+          { style: styles.experienceParagraph },
+          'Contributed across multiple teams on a restaurant reservation platform, building advanced ',
+          React.createElement(Text, { style: styles.keyEmphasis }, 'UI components'),
+          ' such as interactive carousels and responsive layouts, implementing ',
+          React.createElement(Text, { style: styles.keyEmphasis }, 'SEO improvements with server-side rendering'),
+          ', developing scalable features with ',
+          React.createElement(Text, { style: styles.keyEmphasis }, 'React and Redux'),
+          ', and creating reusable components with ',
+          React.createElement(Text, { style: styles.keyEmphasis }, 'Styled Components'),
+          ' to improve overall user experience.'
+        )
       ),
-      
+
       // Market Logic
       React.createElement(
         View,
-        { style: styles.jobBlock },
+        { style: { ...styles.jobBlock, marginBottom: 10, paddingBottom: 2 } },
         React.createElement(
           View,
-          { style: { flexDirection: 'row', alignItems: 'baseline', flexWrap: 'wrap' } },
+          { style: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 2 } },
+          React.createElement(Text, { style: styles.companyName }, 'Market Logic Software — Web Developer'),
           React.createElement(
             View,
-            { style: styles.dates },
-            React.createElement(Text, { style: { fontSize: 9 } }, 'March 2016 - July 2016')
-          ),
-          React.createElement(Text, { style: { fontSize: 8, marginHorizontal: 6 } }, '|'),
-          React.createElement(Text, { style: styles.jobTitle }, '🌐 Web Developer'),
-          React.createElement(Text, { style: { fontSize: 8, marginHorizontal: 6 } }, '|'),
-          React.createElement(Text, { style: { fontSize: 11, fontWeight: 'bold', color: '#1e40af' } }, 'Market Logic Software - Berlin, Germany')
+            { style: { flexDirection: 'row', alignItems: 'center' } },
+            React.createElement(Text, { style: styles.locationMeta }, 'Berlin'),
+            React.createElement(Text, { style: { marginLeft: 6, color: palette.oceanBlue } }, '•'),
+            React.createElement(Text, { style: { ...styles.dateRange, marginLeft: 6 } }, 'Mar 2016 – Jul 2016')
+          )
         ),
         React.createElement(
           Text,
-          { style: styles.description },
-          'Worked on development of advanced UI components for data visualization.'
-        ),
-        React.createElement(Text, { style: styles.bulletPoint }, '• Created interactive graphs and data visualizations using React and D3.js'),
-        React.createElement(Text, { style: styles.bulletPoint }, '• Developed dynamic widgets for data representation'),
-        React.createElement(Text, { style: styles.bulletPoint }, '• Focused on creating intuitive user interfaces')
+          { style: styles.experienceParagraph },
+          'Worked on advanced ',
+          React.createElement(Text, { style: styles.keyEmphasis }, 'UI components for data visualization'),
+          ', creating interactive graphs with ',
+          React.createElement(Text, { style: styles.keyEmphasis }, 'React and D3.js'),
+          ', developing dynamic widgets for data representation, and focusing on intuitive user interfaces.'
+        )
       ),
-      
+
       // AISA
       React.createElement(
         View,
-        { style: styles.jobBlock },
+        { style: { ...styles.jobBlock, marginBottom: 10, paddingBottom: 2 } },
         React.createElement(
           View,
-          { style: { flexDirection: 'row', alignItems: 'baseline', flexWrap: 'wrap' } },
+          { style: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 2 } },
+          React.createElement(Text, { style: styles.companyName }, 'AISA — Software Developer'),
           React.createElement(
             View,
-            { style: styles.dates },
-            React.createElement(Text, { style: { fontSize: 9 } }, 'April 2015 - June 2015')
-          ),
-          React.createElement(Text, { style: { fontSize: 8, marginHorizontal: 6 } }, '|'),
-          React.createElement(Text, { style: styles.jobTitle }, '💻 Software Developer'),
-          React.createElement(Text, { style: { fontSize: 8, marginHorizontal: 6 } }, '|'),
-          React.createElement(Text, { style: { fontSize: 11, fontWeight: 'bold', color: '#1e40af' } }, 'AISA - Mexico')
+            { style: { flexDirection: 'row', alignItems: 'center' } },
+            React.createElement(Text, { style: styles.locationMeta }, 'Mexico'),
+            React.createElement(Text, { style: { marginLeft: 6, color: palette.oceanBlue } }, '•'),
+            React.createElement(Text, { style: { ...styles.dateRange, marginLeft: 6 } }, 'Apr 2015 – Jun 2015')
+          )
         ),
         React.createElement(
           Text,
-          { style: styles.description },
-          'Contributed to software development for legal document management systems in government institutions.'
-        ),
-        React.createElement(Text, { style: styles.bulletPoint }, '• Designed and programmed UI forms and controls using Windows Presentation Foundation (WPF)'),
-        React.createElement(Text, { style: styles.bulletPoint }, '• Developed applications using C#'),
-        React.createElement(Text, { style: styles.bulletPoint }, '• Worked with large SQL databases to manage legal documents'),
-        React.createElement(Text, { style: styles.bulletPoint }, '• Collaborated on systems for government institution management')
+          { style: styles.experienceParagraph },
+          'Contributed to ',
+          React.createElement(Text, { style: styles.keyEmphasis }, 'legal document management systems'),
+          ' for government institutions, designing and programming UI forms and controls in ',
+          React.createElement(Text, { style: styles.keyEmphasis }, 'Windows Presentation Foundation (WPF)'),
+          ', developing applications with ',
+          React.createElement(Text, { style: styles.keyEmphasis }, 'C#'),
+          ', working with large ',
+          React.createElement(Text, { style: styles.keyEmphasis }, 'SQL databases'),
+          ', and collaborating on institution-wide management systems.'
+        )
       )
     ),
-    
+
     // Education
     React.createElement(
       View,
-      { style: styles.section },
+      { style: { marginTop: 5 } },
       React.createElement(
         View,
-        { style: { flexDirection: 'row', alignItems: 'center', marginBottom: 3, paddingBottom: 3, textTransform: 'uppercase' } },
+        { style: styles.sectionHeader },
         React.createElement(GraduationCapIcon, { size: 14 }),
         React.createElement(Text, { style: styles.sectionTitle }, 'EDUCATION')
       ),
@@ -579,88 +798,117 @@ const CV = () => React.createElement(
         { style: styles.educationItem },
         React.createElement(
           View,
-          { style: { flexDirection: 'row', alignItems: 'baseline', flexWrap: 'wrap' } },
-          React.createElement(
-            View,
-            { style: styles.educationDates },
-            React.createElement(Text, { style: { fontSize: 9 } }, 'August 2012 - May 2017')
-          ),
-          React.createElement(Text, { style: { fontSize: 8, marginHorizontal: 6 } }, '|'),
-          React.createElement(Text, { style: styles.educationTitle }, '🎓 Bachelor of IT Engineering'),
-          React.createElement(Text, { style: { fontSize: 8, marginHorizontal: 6 } }, '|'),
-          React.createElement(Text, { style: { fontSize: 11, fontWeight: 'bold', color: '#1e40af' } }, 'Tecnológico de Monterrey')
+          { style: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 2 } },
+          React.createElement(Text, { style: styles.educationTitle }, 'Bachelor of IT Engineering'),
+          React.createElement(Text, { style: styles.dateRange }, 'Aug 2012 – May 2017')
         ),
+        React.createElement(Text, { style: styles.educationInstitution }, 'Tecnológico de Monterrey, Mexico'),
         React.createElement(
           Text,
-          { style: styles.description },
-          'Comprehensive studies covering Object-Oriented Programming, Data Structures, Databases, ' +
-          'Networks, Servers and Operating Systems, IT Security, and Cloud Computing.'
+          { style: { ...styles.experienceParagraph, marginBottom: 0 } },
+          'Comprehensive studies covering ',
+          React.createElement(Text, { style: styles.keyEmphasis }, 'Object-Oriented Programming'),
+          ', ',
+          React.createElement(Text, { style: styles.keyEmphasis }, 'Data Structures'),
+          ', Databases, Networks, Servers and Operating Systems, ',
+          React.createElement(Text, { style: styles.keyEmphasis }, 'IT Security'),
+          ', and ',
+          React.createElement(Text, { style: styles.keyEmphasis }, 'Cloud Computing'),
+          '.'
         )
       )
     )
   ),
-  
-  // Page 2: Technical Skills
+
+  // ── PAGE 2: Education + Skills + Competencies ──────────────────────────────
   React.createElement(
     Page,
     { size: 'A4', style: styles.page },
-    // Page Header
+
+    // Compact header
     React.createElement(
       View,
-      { style: { marginBottom: 10, borderBottom: '2 solid #cbd5e1', paddingBottom: 6 } },
-      React.createElement(Text, { style: { fontSize: 16, fontWeight: 'bold', color: '#1a202c' } }, '💼 Carlos Santisteban'),
-      React.createElement(Text, { style: { fontSize: 11, color: '#64748b', marginTop: 2 } }, '🛠️ Skills & Competencies')
+      { style: { marginBottom: 12, backgroundColor: palette.light, padding: '10 14', borderRadius: 4, borderTop: `4 solid ${palette.bubblegumPink}`, borderLeft: `4 solid ${palette.bubblegumPink}`, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' } },
+      React.createElement(Text, { style: { fontSize: 15, fontWeight: 600, color: palette.darkTeal } }, 'Carlos Santisteban'),
+      React.createElement(Text, { style: { fontSize: 10, color: palette.oceanBlue, fontWeight: 'bold' } }, 'Skills & Competencies')
     ),
-    
-    // Two-column layout
+
+    // Technical Skills — 3-column layout
     React.createElement(
       View,
-      { style: { flexDirection: 'row', marginTop: 10 } },
-      // Left Column - Technical Skills
+      { style: { ...styles.section, marginTop: 8, marginBottom: 6 } },
       React.createElement(
         View,
-        { style: { flex: 1, marginRight: 8 } },
-        React.createElement(
-          View,
-          { style: { flexDirection: 'row', alignItems: 'center', marginBottom: 3, paddingBottom: 3, textTransform: 'uppercase' } },
-          React.createElement(WrenchIcon, { size: 14 }),
-          React.createElement(Text, { style: styles.sectionTitle }, 'TECHNICAL SKILLS')
-        ),
-        React.createElement(Text, { style: styles.categoryTitle }, '🎨 Frontend Technologies:'),
-        React.createElement(Text, { style: styles.bulletPoint }, 'React, Next.js, TypeScript, JavaScript, Redux, Zustand, MaterialUI, Tailwind CSS, Styled Components, CSS Modules, Shadcn, Webpack, Vite, ReactRouter, HTML, CSS, AMP'),
-        React.createElement(Text, { style: styles.categoryTitle }, '⚙️ Backend & Data:'),
-        React.createElement(Text, { style: styles.bulletPoint }, 'Node.js, NestJS, PostgreSQL, GraphQL, tRPC, Prisma, NextAuth, MongoDB, Redis, Convex, REST APIs, Apollo, WebSockets, Express, Hono, Fastify, Geckos.io, Partykit, SQL, AWS, Cloudflare'),
-        React.createElement(Text, { style: styles.categoryTitle }, '🔧 Tools & Practices:'),
-        React.createElement(Text, { style: styles.bulletPoint }, 'Git, Docker, Cypress, Playwright, Jest, React Testing Library, Storybook, GitHub, GitHub Actions, ESLint, Prettier, Cursor, Sentry, Postman, Figma, Jira, Slack, Enzyme, MCP, RAG, npm, yarn, pnpm')
+        { style: styles.sectionHeader },
+        React.createElement(WrenchIcon, { size: 14 }),
+        React.createElement(Text, { style: styles.sectionTitle }, 'TECHNICAL SKILLS')
       ),
-      // Right Column - Core Competencies
       React.createElement(
         View,
-        { style: { flex: 1, marginLeft: 8 } },
+        { style: { marginTop: 6 } },
+        // Frontend row
         React.createElement(
           View,
-          { style: { flexDirection: 'row', alignItems: 'center', marginBottom: 3, paddingBottom: 3, textTransform: 'uppercase' } },
-          React.createElement(ZapIcon, { size: 14 }),
-          React.createElement(Text, { style: styles.sectionTitle }, 'CORE COMPETENCIES')
+          { style: { marginBottom: 8, paddingBottom: 6, borderBottom: `1 solid ${palette.light}` } },
+          React.createElement(Text, { style: { fontSize: 9.3, fontWeight: 'bold', color: palette.oceanBlue, textTransform: 'uppercase', letterSpacing: 0.8, marginBottom: 6 } }, 'Frontend'),
+          renderSkillBadges(frontendSkills)
         ),
-        React.createElement(Text, { style: styles.categoryTitle }, '💡 Technical Expertise:'),
-        React.createElement(Text, { style: styles.competencyItem }, '• Performance Optimization'),
-        React.createElement(Text, { style: styles.competencyItem }, '• API Design'),
-        React.createElement(Text, { style: styles.competencyItem }, '• Server-Side Rendering (SSR)'),
-        React.createElement(Text, { style: styles.competencyItem }, '• Code Quality & Code Reviews'),
-        React.createElement(Text, { style: styles.competencyItem }, '• Routing and State Management'),
-        React.createElement(Text, { style: styles.competencyItem }, '• Security Best Practices'),
-        React.createElement(Text, { style: styles.competencyItem }, '• Responsive Design & UX/UI'),
-        React.createElement(Text, { style: styles.competencyItem }, '• Unit Testing & CI/CD'),
-        React.createElement(Text, { style: styles.competencyItem }, '• Debugging and Troubleshooting'),
-        React.createElement(Text, { style: styles.competencyItem }, '• Code Splitting and Lazy Loading'),
-        React.createElement(Text, { style: styles.competencyItem }, '• Web Vitals and Lighthouse'),
-        React.createElement(Text, { style: styles.competencyItem }, '• SEO Optimization'),
-        React.createElement(Text, { style: styles.competencyItem }, '• Client-Server Interaction'),
-        React.createElement(Text, { style: styles.competencyItem }, '• Documentation'),
-        React.createElement(Text, { style: styles.competencyItem }, '• Cross-Functional Team Collaboration'),
-        React.createElement(Text, { style: styles.competencyItem }, '• Agile Methodology'),
-        React.createElement(Text, { style: styles.competencyItem }, '• AI-Assisted Development')
+        // Backend row
+        React.createElement(
+          View,
+          { style: { marginBottom: 8, paddingBottom: 6, borderBottom: `1 solid ${palette.light}` } },
+          React.createElement(Text, { style: { fontSize: 9.3, fontWeight: 'bold', color: palette.oceanBlue, textTransform: 'uppercase', letterSpacing: 0.8, marginBottom: 6 } }, 'Backend & Data'),
+          renderSkillBadges(backendSkills)
+        ),
+        // Tools row
+        React.createElement(
+          View,
+          { style: { marginBottom: 2 } },
+          React.createElement(Text, { style: { fontSize: 9.3, fontWeight: 'bold', color: palette.oceanBlue, textTransform: 'uppercase', letterSpacing: 0.8, marginBottom: 6 } }, 'Tools & Practices'),
+          renderSkillBadges(toolsSkills)
+        )
+      )
+    ),
+
+    // Core Competencies — 2-column grid
+    React.createElement(
+      View,
+      { style: { ...styles.section, marginTop: 10, marginBottom: 6 } },
+      React.createElement(
+        View,
+        { style: styles.sectionHeader },
+        React.createElement(ZapIcon, { size: 14 }),
+        React.createElement(Text, { style: styles.sectionTitle }, 'CORE COMPETENCIES')
+      ),
+      React.createElement(
+        View,
+        { style: { flexDirection: 'row', marginTop: 10 } },
+        // Left column
+        React.createElement(
+          View,
+          { style: { flex: 1, paddingRight: 10 } },
+          React.createElement(Text, { style: styles.competencyItem }, '• Routing and State Management'),
+          React.createElement(Text, { style: styles.competencyItem }, '• API Design'),
+          React.createElement(Text, { style: styles.competencyItem }, '• Responsive Design & UX/UI'),
+          React.createElement(Text, { style: styles.competencyItem }, '• AI-Assisted Development'),
+          React.createElement(Text, { style: styles.competencyItem }, '• Unit Testing & CI/CD'),
+          React.createElement(Text, { style: styles.competencyItem }, '• Code Quality & Code Reviews'),
+          React.createElement(Text, { style: styles.competencyItem }, '• Performance Optimization'),
+          React.createElement(Text, { style: styles.competencyItem }, '• Server-Side Rendering (SSR)')
+        ),
+        // Right column
+        React.createElement(
+          View,
+          { style: { flex: 1, paddingLeft: 10 } },
+          React.createElement(Text, { style: styles.competencyItem }, '• Debugging and Troubleshooting'),
+          React.createElement(Text, { style: styles.competencyItem }, '• Code Splitting and Lazy Loading'),
+          React.createElement(Text, { style: styles.competencyItem }, '• Web Vitals and Lighthouse'),
+          React.createElement(Text, { style: styles.competencyItem }, '• SEO Optimization'),
+          React.createElement(Text, { style: styles.competencyItem }, '• Client-Server Interaction'),
+          React.createElement(Text, { style: styles.competencyItem }, '• Documentation'),
+          React.createElement(Text, { style: styles.competencyItem }, '• Cross-Functional Team Collaboration'),
+          React.createElement(Text, { style: styles.competencyItem }, '• Agile Methodology')
+        )
       )
     )
   )
